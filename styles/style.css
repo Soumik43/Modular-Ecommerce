@@ -1,0 +1,30 @@
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#rootCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card--container {
+    margin: 10px;
+}
+
+#cart--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card__image {
+    width: 100px;
+    height: 100px;
+}
+
+.card__title {
+    word-wrap: break-word;
+    max-width: 100px;
+}
