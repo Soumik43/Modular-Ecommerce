@@ -6,6 +6,6 @@ It is preferable to a static json file hosted on GitHub.
 Once the product components are loaded on the page, each component will have a counter that lists the number of products selected by the user.
 There will be a Cart component can be placed on the page. 
 This component should store the following information.
-  - Number of products
+  - Number of products.
   - Total amount of the order.
   - Optionally items placed in the cart on hover.
