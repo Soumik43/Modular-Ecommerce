@@ -52,6 +52,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .cart__button {
@@ -61,4 +62,19 @@
     border: none;
     background-color: red;
     color: white;
+}
+
+#cart__count{
+    display: flex;
+    align-items: center;
+}
+
+.card__price__dis{
+    font-weight: bold;
+}
+
+.card__price__og{
+   text-decoration: line-through;
+   font-size: .85rem;
+   color: grey;
 }

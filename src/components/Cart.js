@@ -1,7 +1,4 @@
 export class Cart {
-    constructor(totalCount) {
-        this.totalCount = totalCount;
-    }
     render() {
         const cartContainer = document.createElement("div");
         const title = document.createElement("p");
@@ -11,7 +8,9 @@ export class Cart {
         title.id = "title__webpage";
         title.innerText = "@Soumik. All rights reserved.";
         cartCount.id = "cart__count";
-        cartCount.innerText = this.totalCount.toString();
+        cartCount.innerHTML = `${localStorage.getItem(
+            "totalCartItems"
+        ).toString()} <img src="assets/bag.png" style="width: 2rem; height: 2rem;">`;
 
         cartContainer.appendChild(title);
         cartContainer.appendChild(cartCount);
