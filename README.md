@@ -8,4 +8,4 @@ There will be a Cart component can be placed on the page.
 This component should store the following information.
   - Number of products
   - Total amount of the order.
-  - Optionally items placed in the cart (see sample image) ( this can be avoided if you still are learning HTML/CSS )
+  - Optionally items placed in the cart on hover.
