@@ -1,24 +1,23 @@
 export class Card {
-    constructor(data, count) {
+    constructor(data) {
         this.data = data;
-        this.totalCartCount = count;
-        this.currCount = 0;
+        this.cartItemsCount = 0;
         this.addToCart = document.createElement("button");
     }
 
     incrementCount = () => {
-        this.currCount++;
-        this.updateCount();
-    };
-
-    decrementCount = () => {
-        this.currCount === 0 ? this.currCount : this.currCount--;
+        this.cartItemsCount++;
+        window["totalCartCount"]++;
+        window["cartItems"][this.data.id] === undefined
+            ? (window["cartItems"][this.data.id] = [])
+            : window["cartItems"][this.data.id].push(this.data);
+        console.log(window["cartItems"]);
         this.updateCount();
     };
 
     updateCount = () => {
-        this.addToCart.innerText = this.currCount.toString();
-        document.getElementById("cart__count").innerText = this.totalCartCount.toString();
+        this.addToCart.innerText = this.cartItemsCount.toString();
+        document.getElementById("cart__count").innerText = window["totalCartCount"].toString();
     };
 
     render() {
@@ -26,39 +25,33 @@ export class Card {
         const upperDiv = document.createElement("div");
         const lowerDiv = document.createElement("div");
         const titleP = document.createElement("p");
-        const priceP = document.createElement("p");
+        const originalPrice = document.createElement("p");
         const img = document.createElement("img");
-        const addToFav = document.createElement("button");
-        // const addToCart = document.createElement("button");
-        const buttonContainer = document.createElement("div");
-        const increment = document.createElement("button");
-        const decrement = document.createElement("button");
+        const discountedPrice = document.createElement("p");
+        const priceContainer = document.createElement("div");
 
         container.className = "card--container";
         img.className = "card__image";
-        priceP.className = "card__price";
+        originalPrice.className = "card__price";
         titleP.className = "card__title";
+        lowerDiv.className = "lower--div";
+        upperDiv.className = "upper--div";
+        priceContainer.className = "price--div";
+        this.addToCart.className = "cart__button";
 
         const { thumbnail, title, price, rating, discountPercentage } = this.data;
         img.src = thumbnail;
         titleP.innerText = title;
-        priceP.innerText = price;
-        this.addToCart.innerText = this.currCount.toString();
-        increment.innerText = "+";
-        decrement.innerText = "-";
-        increment.onclick = this.incrementCount;
-        decrement.onclick = this.decrementCount;
+        originalPrice.innerText = "₹" + price;
+        this.addToCart.innerHTML = `<i class="fa fa-cart-plus" style="font-size: 1rem" ></i>`;
+        discountedPrice.innerText = "₹" + Math.round(price - (discountPercentage / 100) * price).toString();
+        this.addToCart.onclick = this.incrementCount;
 
-        buttonContainer.appendChild(increment);
-        buttonContainer.appendChild(this.addToCart);
-        buttonContainer.appendChild(decrement);
+        priceContainer.append(originalPrice, discountedPrice, this.addToCart);
         upperDiv.appendChild(img);
-        lowerDiv.appendChild(titleP);
-        lowerDiv.appendChild(priceP);
-        lowerDiv.appendChild(buttonContainer);
+        lowerDiv.append(titleP, priceContainer);
 
-        container.appendChild(upperDiv);
-        container.appendChild(lowerDiv);
+        container.append(upperDiv, lowerDiv);
         return container;
     }
 }
