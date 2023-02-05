@@ -10,7 +10,7 @@ export class Cart {
         cartCount.id = "cart__count";
         cartCount.innerHTML = `${localStorage.getItem(
             "totalCartItems"
-        ).toString()} <img src="assets/bag.png" style="width: 2rem; height: 2rem;">`;
+        ).toString()} <img src="assets/bag.png" id="cart__icon" style="width: 2rem; height: 2rem;">`;
 
         cartContainer.appendChild(title);
         cartContainer.appendChild(cartCount);

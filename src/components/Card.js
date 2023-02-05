@@ -1,7 +1,10 @@
+import { CartHover } from "./CartHover.js";
+
 export class Card {
-    constructor(data) {
+    constructor(data, isHover = false) {
         this.data = data;
         this.cartItemsCount = 0;
+        this.isHover = isHover;
         // this.addToCart = document.createElement("button");
     }
 
@@ -22,6 +25,11 @@ export class Card {
     };
 
     updateCount = () => {
+        if (document.getElementById("rootCardContainer").contains(document.getElementById("cart--hover")))
+            document.getElementById("rootCardContainer").removeChild(document.getElementById("cart--hover"));
+        document
+            .getElementById("rootCardContainer")
+            .appendChild(new CartHover(JSON.parse(localStorage.getItem("cartItems"))).render());
         document.getElementById("cart__count").innerHTML = `${localStorage
             .getItem("totalCartItems")
             .toString()} <img src="assets/bag.png" style="width: 2rem; height: 2rem;">`;

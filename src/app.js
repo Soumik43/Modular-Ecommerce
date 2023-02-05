@@ -1,5 +1,7 @@
 import { Card } from "./components/Card.js";
 import { Cart } from "./components/Cart.js";
+import { CartHover } from "./components/CartHover.js";
+import { productsLink } from "./config/product.js";
 
 const root = document.getElementById("root");
 
@@ -15,7 +17,7 @@ root.appendChild(new Cart().render());
 const cardContainer = document.createElement("div");
 cardContainer.id = "rootCardContainer";
 
-fetch("https://raw.githubusercontent.com/Soumik43/Modular-Ecommerce/main/data/products.json")
+fetch(productsLink)
     .then((res) => res.json())
     .then((data) => {
         data.products.forEach((cardData) => {
@@ -24,4 +26,6 @@ fetch("https://raw.githubusercontent.com/Soumik43/Modular-Ecommerce/main/data/pr
         });
     });
 
-root.appendChild(cardContainer);
+cardContainer.appendChild(new CartHover(JSON.parse(localStorage.getItem("cartItems"))).render());
+
+root.append(cardContainer);

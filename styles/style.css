@@ -10,10 +10,22 @@
 }
 
 #rootCardContainer {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+#cart--hover {
+    display: none;
+}
+
+#cart__icon:hover + #cart--hover {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #cart--container {
@@ -64,17 +76,17 @@
     color: white;
 }
 
-#cart__count{
+#cart__count {
     display: flex;
     align-items: center;
 }
 
-.card__price__dis{
+.card__price__dis {
     font-weight: bold;
 }
 
-.card__price__og{
-   text-decoration: line-through;
-   font-size: .85rem;
-   color: grey;
+.card__price__og {
+    text-decoration: line-through;
+    font-size: 0.85rem;
+    color: grey;
 }
