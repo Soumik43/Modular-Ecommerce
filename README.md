@@ -1,5 +1,7 @@
 # Modular E-commerce [ Communication between modular components ]
 
+Live link -> [E-commerce](https://soumik43.github.io/Modular-Ecommerce/)
+
 E-commerce website are a very commonplace site now a days.
 Here we created a simple page for a product listing page. The data for the product cards can come from either a static json file or hosted on GitHub as static json file. 
 It is preferable to a static json file hosted on GitHub.
