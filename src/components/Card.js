@@ -19,10 +19,10 @@ export class Card {
     };
 
     updateCount = () => {
-        if (document.getElementById("root--cart--container").contains(document.getElementById("cart--hover")))
-            document.getElementById("root--cart--container").removeChild(document.getElementById("cart--hover"));
+        if (document.getElementById("cart__count").contains(document.getElementById("cart--hover")))
+            document.getElementById("cart__count").removeChild(document.getElementById("cart--hover"));
         document
-            .getElementById("root--cart--container")
+            .getElementById("cart__count")
             .appendChild(new CartHover(JSON.parse(localStorage.getItem("cartItems"))).render());
         document.getElementById("cart__count").innerHTML = `${localStorage
             .getItem("totalCartItems")

@@ -1,6 +1,5 @@
 import { Card } from "./components/Card.js";
 import { Cart } from "./components/Cart.js";
-import { CartHover } from "./components/CartHover.js";
 import { productsLink } from "./config/product.js";
 
 const root = document.getElementById("root");
@@ -21,7 +20,5 @@ fetch(productsLink)
             cardContainer.appendChild(newCard.render());
         });
     });
-
-cardContainer.appendChild(new CartHover(JSON.parse(localStorage.getItem("cartItems"))).render());
 
 root.append(cardContainer);
