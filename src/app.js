@@ -5,17 +5,13 @@ import { productsLink } from "./config/product.js";
 
 const root = document.getElementById("root");
 
-// Declaring global variables to access across all files.
-// window["totalCartCount"] = 0;
-// window["cartItems"] = {};
-
 if (!localStorage.getItem("totalCartItems")) localStorage.setItem("totalCartItems", 0);
 
 if (!localStorage.getItem("cartItems")) localStorage.setItem("cartItems", JSON.stringify({}));
 
 root.appendChild(new Cart().render());
 const cardContainer = document.createElement("div");
-cardContainer.id = "rootCardContainer";
+cardContainer.id = "root--cart--container";
 
 fetch(productsLink)
     .then((res) => res.json())

@@ -5,7 +5,6 @@ export class Card {
         this.data = data;
         this.cartItemsCount = 0;
         this.isHover = isHover;
-        // this.addToCart = document.createElement("button");
     }
 
     incrementCount = () => {
@@ -16,19 +15,14 @@ export class Card {
         cartItems[this.data.id] === undefined ? (cartItems[this.data.id] = 1) : cartItems[this.data.id]++;
         localStorage.setItem("totalCartItems", totalCartItemsCount);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        console.log(localStorage.getItem("cartItems"));
-        // window["totalCartCount"]++;
-        // window["cartItems"][this.data.id] === undefined
-        //     ? (window["cartItems"][this.data.id] = [this.data])
-        //     : window["cartItems"][this.data.id].push(this.data);
         this.updateCount();
     };
 
     updateCount = () => {
-        if (document.getElementById("rootCardContainer").contains(document.getElementById("cart--hover")))
-            document.getElementById("rootCardContainer").removeChild(document.getElementById("cart--hover"));
+        if (document.getElementById("root--cart--container").contains(document.getElementById("cart--hover")))
+            document.getElementById("root--cart--container").removeChild(document.getElementById("cart--hover"));
         document
-            .getElementById("rootCardContainer")
+            .getElementById("root--cart--container")
             .appendChild(new CartHover(JSON.parse(localStorage.getItem("cartItems"))).render());
         document.getElementById("cart__count").innerHTML = `${localStorage
             .getItem("totalCartItems")
