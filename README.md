@@ -11,3 +11,12 @@ This component should store the following information.
   - Number of products.
   - Total amount of the order.
   - Optionally items placed in the cart on hover.
+
+## Deployment
+
+```bash
+  To run this project locally clone this project and deploy the html page to chrome (You can additionally use the Live - Server extension in Vscode to do the same).
+```
+
+
+
