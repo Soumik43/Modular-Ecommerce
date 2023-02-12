@@ -1,5 +1,3 @@
-import { CartHover } from "./CartHover.js";
-
 export class Cart {
     render() {
         const cartContainer = document.createElement("div");
@@ -13,7 +11,6 @@ export class Cart {
         cartCount.innerHTML = `${localStorage
             .getItem("totalCartItems")
             .toString()} <img src="assets/bag.png" id="cart__icon" style="width: 2rem; height: 2rem;">`;
-        cartCount.appendChild(new CartHover(JSON.parse(localStorage.getItem("cartItems"))).render());
 
         cartContainer.appendChild(title);
         cartContainer.appendChild(cartCount);

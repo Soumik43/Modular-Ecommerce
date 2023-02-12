@@ -1,4 +1,4 @@
-import { CartHover } from "./CartHover.js";
+import { CartProducts } from "./CartProduct.js";
 
 export class Card {
     constructor(data, isHover = false) {
@@ -19,11 +19,11 @@ export class Card {
     };
 
     updateCount = () => {
-        if (document.getElementById("cart__count").contains(document.getElementById("cart--hover")))
-            document.getElementById("cart__count").removeChild(document.getElementById("cart--hover"));
+        if (document.getElementById("root").contains(document.getElementById("cart--products")))
+            document.getElementById("root").removeChild(document.getElementById("cart--products"));
         document
-            .getElementById("cart__count")
-            .appendChild(new CartHover(JSON.parse(localStorage.getItem("cartItems"))).render());
+            .getElementById("root")
+            .appendChild(new CartProducts(JSON.parse(localStorage.getItem("cartItems"))).render());
         document.getElementById("cart__count").innerHTML = `${localStorage
             .getItem("totalCartItems")
             .toString()} <img src="assets/bag.png" style="width: 2rem; height: 2rem;">`;

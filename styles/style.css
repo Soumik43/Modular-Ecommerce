@@ -10,22 +10,24 @@
 }
 
 #root--cart--container {
-    position: relative;
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
-#cart--hover {
-    display: none;
+#whole--container {
+    display: flex;
+    flex-direction: row;
 }
 
-#cart__icon:hover + #cart--hover {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
+#cart--products {
+    width: 20%;
+}
+
+hr.solid {
+    border-top: 3px solid #bbb;
 }
 
 #cart--container {
