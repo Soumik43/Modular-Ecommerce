@@ -6,8 +6,8 @@ import { CartProducts } from "./components/CartProduct.js";
 const root = document.getElementById("root");
 
 if (!localStorage.getItem("totalCartItems")) localStorage.setItem("totalCartItems", 0);
-
 if (!localStorage.getItem("cartItems")) localStorage.setItem("cartItems", JSON.stringify({}));
+if (!localStorage.getItem("cartItemsTotal")) localStorage.setItem("cartItemsTotal", 0);
 
 root.appendChild(new Cart().render());
 const cardContainer = document.createElement("div");

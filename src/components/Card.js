@@ -10,21 +10,27 @@ export class Card {
     incrementCount = () => {
         let totalCartItemsCount = localStorage.getItem("totalCartItems");
         let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+        let totalPrice = parseFloat(localStorage.getItem("cartItemsTotal"));
         this.cartItemsCount++;
         totalCartItemsCount++;
+        totalPrice += Math.round(
+            parseFloat(this.data.price) - (parseFloat(this.data.discountPercentage) / 100) * parseFloat(this.data.price)
+        );
+        console.log(typeof totalPrice);
         cartItems[this.data.id] === undefined ? (cartItems[this.data.id] = 1) : cartItems[this.data.id]++;
         localStorage.setItem("totalCartItems", totalCartItemsCount);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        localStorage.setItem("cartItemsTotal", totalPrice);
         this.updateCount();
     };
 
     updateCount = () => {
-        if (document.getElementById("root").contains(document.getElementById("cart--products")))
-            document.getElementById("root").removeChild(document.getElementById("cart--products"));
+        if (document.getElementById("whole--container").contains(document.getElementById("cart--products")))
+            document.getElementById("whole--container").removeChild(document.getElementById("cart--products"));
         document
-            .getElementById("root")
+            .getElementById("whole--container")
             .appendChild(new CartProducts(JSON.parse(localStorage.getItem("cartItems"))).render());
-        document.getElementById("cart__count").innerHTML = `${localStorage
+        document.getElementById("cart__count").innerHTML = `(₹${localStorage.getItem("cartItemsTotal")})  ${localStorage
             .getItem("totalCartItems")
             .toString()} <img src="assets/bag.png" style="width: 2rem; height: 2rem;">`;
     };

@@ -24,10 +24,18 @@
 
 #cart--products {
     width: 20%;
+    position: sticky;
+    top: 0;
+    right: 0;
 }
 
 hr.solid {
     border-top: 3px solid #bbb;
+}
+
+#cart__products__heading__title {
+    font-weight: bolder;
+    font-size: larger;
 }
 
 #cart--container {

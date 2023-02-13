@@ -8,12 +8,11 @@ export class Cart {
         title.id = "title__webpage";
         title.innerText = "@Soumik. All rights reserved.";
         cartCount.id = "cart__count";
-        cartCount.innerHTML = `${localStorage
+        cartCount.innerHTML = `(₹${localStorage.getItem("cartItemsTotal")})  ${localStorage
             .getItem("totalCartItems")
             .toString()} <img src="assets/bag.png" id="cart__icon" style="width: 2rem; height: 2rem;">`;
 
-        cartContainer.appendChild(title);
-        cartContainer.appendChild(cartCount);
+        cartContainer.append(title, cartCount);
 
         return cartContainer;
     }
